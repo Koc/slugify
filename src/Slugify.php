@@ -797,10 +797,10 @@ class Slugify implements SlugifyInterface
      */
     public function slugify($string, $separator = '-')
     {
-        $string = strtr($string, $this->rules);
         if ($this->options['lowercase']) {
             $string = mb_strtolower($string);
         }
+        $string = strtr($string, $this->rules);
         $string = preg_replace($this->regExp, $separator, $string);
 
         return trim($string, $separator);
